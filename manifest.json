@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "Temporary Bookmarks",
+  "description": "Bookmarks who are automatically removed when viewed",
+  "version": "1.0",
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content_script.js"]
+    }
+  ],
+
+  "commands": {
+    "toggle-add-temp-bookmark": {
+      "suggested_key": {
+        "default": "Alt+J"
+      },
+      "description": "Adds temporary bookmark"
+    }
+  },
+
+  "permissions": [
+    "bookmarks",
+    "tabs"
+  ]
+}
